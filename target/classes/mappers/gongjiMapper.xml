@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gongji.mapper.gongjiMapper">
+
+	<insert id="insert">
+		INSERT INTO gongji(title, date, content) VALUES(#{title}, #{date}, #{content})
+	</insert>
+	
+	<select id="select" resultType="gongjiVO">
+		SELECT id, title, date, content FROM gongji ORDER BY id DESC
+	</select>
+	
+	<select id="selectOne" resultType="gongjiVO">
+		SELECT id, title, date, content FROM gongji WHERE id = #{id}
+	</select>
+	
+	<update id="update">
+		UPDATE gongji SET title = #{title}, content = #{content} WHERE id = #{id}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM gongji WHERE id = #{id}
+	</delete>
+	
+</mapper>
+
